@@ -1,0 +1,15 @@
+// Base & Utilities
+@import './utilities/reset';
+@import './utilities/variables';
+
+// Component's styles
+@import './components/App';
+
+html {
+  font-size: 10px;
+}
+
+body {
+  background-color: $main-color;
+  color: $font-color;
+}
