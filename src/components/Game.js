@@ -11,7 +11,7 @@ const Game = () => {
     const handleButtonClick = () => {
         let newValues = dices;
         if (queue > 0 ) {
-            dices.map((item, index) => {
+            newValues.map((item, index) => {
             if (!blockItem[index]) {
                 let randomValue = Math.floor(Math.random() * 6) + 1;
                 newValues[index] = randomValue;
@@ -27,13 +27,11 @@ const Game = () => {
 
     const handleDiceClick = number => {
         let newValues = blockItem;
-        console.log(number);
         for (let i = 0; i < newValues.length; i++) {
             if(i === number) {
                 newValues[i] = !newValues[i];
             }
         }
-        console.log(newValues)
         setBlockItem(newValues);
     }
 
@@ -43,16 +41,17 @@ const Game = () => {
                 {dices.map((item, index) => (
                     <div 
                         key={arrayOfID[index]} 
-                        className="dice"
+                        className={blockItem[index] ? "dice blocked" : "dice"}
                         onClick={() => handleDiceClick(index)}
                         >
                         {item}
                     </div>
                 ))}
             </div>
-            {console.log(dices)}
             <button onClick={handleButtonClick}>Roll dice</button>
-            <UpperSection />
+            <UpperSection 
+                dices={dices}
+            />
         </>
     );
 }

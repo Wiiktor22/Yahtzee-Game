@@ -13,6 +13,11 @@
     border-radius: 4px;
     margin: 10px 10px 20px;
     font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.blocked {
+    border: 2px $blocked-color solid;
 }
 
 button {
@@ -25,6 +30,7 @@ button {
     font-family: map-get($map: $fonts, $key: main);
     border: none;
     margin-bottom: 15px;
+    cursor: pointer;
 }
 
 button:focus {
