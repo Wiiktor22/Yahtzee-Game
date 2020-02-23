@@ -4,6 +4,8 @@
 
 // Component's styles
 @import './components/App';
+@import './components/Game';
+@import './components/UpperSection';
 
 html {
   font-size: 10px;
@@ -12,4 +14,5 @@ html {
 body {
   background-color: $main-color;
   color: $font-color;
+  font-family: map-get($map: $fonts, $key: main);
 }

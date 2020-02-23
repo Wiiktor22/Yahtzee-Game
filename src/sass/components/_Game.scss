@@ -1,0 +1,32 @@
+.table {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.dice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $second-color;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    margin: 10px 10px 20px;
+    font-size: 1.8rem;
+}
+
+button {
+    background-color: $font-color;
+    font-size: 1.6rem;
+    color: $main-color;
+    padding: 6px 20px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-family: map-get($map: $fonts, $key: main);
+    border: none;
+    margin-bottom: 15px;
+}
+
+button:focus {
+    outline: none;
+}

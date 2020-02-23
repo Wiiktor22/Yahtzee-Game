@@ -1,0 +1,23 @@
+.upperSection {
+    width: 100%;
+    &__table {
+        margin: 0 auto;
+        width: 85%;
+        font-size: 1.4rem;
+        background-color: $font-color;
+        border-radius: 4px;
+    }
+    &__column {
+        line-height: 2.5rem;
+        background-color: $second-color;
+    }
+    &__column td {
+        text-align: center;
+    }
+    &__strong {
+        width: 70%;
+    }
+    &__table, &__strong {
+        border: 1px solid $font-color;
+    }
+}
