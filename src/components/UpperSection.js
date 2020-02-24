@@ -4,7 +4,6 @@ const UpperSection = props => {
     const [wasChosen, setWasChosen] = useState([false, false, false, false, false, false]);
     const [points, setPoints] = useState([null, null, null, null, null, null]);
     const textForTable = ["Ones", "Twos", "Threes", "Fours", "Fives", "Sixes"];
-    //const [canGetBonus, setCanGetBonus] = useState(true);
     const [normalPoints, setNormalPoints] = useState(0);
     const [totalPoints, setTotalPoints] = useState(0);
      

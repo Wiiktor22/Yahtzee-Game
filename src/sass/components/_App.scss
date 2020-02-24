@@ -3,11 +3,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     width: 100%;
     overflow: hidden;
     .header {
         font-family: map-get($map: $fonts, $key: header);
         font-size: 3rem;
+        margin-top: 10px;
     }
 }

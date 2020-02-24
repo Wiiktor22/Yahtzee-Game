@@ -1,6 +1,7 @@
 import React from 'react';
 import UpperSection from './UpperSection';
 import { useState } from 'react';
+import LowerSection from './LowerSection';
 
 const Game = () => {
     const [queue, setQueue] = useState(3);
@@ -62,6 +63,12 @@ const Game = () => {
             </div>
             <button onClick={handleButtonClick}>Roll dice</button>
             <UpperSection 
+                dices={dices}
+                canPlay={canPlay}
+                changeCanPlay={changeCanPlay}
+                setDefault={setDefault}
+            />
+            <LowerSection 
                 dices={dices}
                 canPlay={canPlay}
                 changeCanPlay={changeCanPlay}
