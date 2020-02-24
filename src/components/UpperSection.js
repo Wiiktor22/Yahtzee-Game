@@ -4,6 +4,9 @@ const UpperSection = props => {
     const [wasChosen, setWasChosen] = useState([false, false, false, false, false, false]);
     const [points, setPoints] = useState([null, null, null, null, null, null]);
     const textForTable = ["Ones", "Twos", "Threes", "Fours", "Fives", "Sixes"];
+    //const [canGetBonus, setCanGetBonus] = useState(true);
+    const [normalPoints, setNormalPoints] = useState(0);
+    const [totalPoints, setTotalPoints] = useState(0);
      
     const checkPossibilityToPlay = number => {
         let newValues = props.dices
@@ -14,7 +17,6 @@ const UpperSection = props => {
                 actualPoints += actualDice;
             }
         })
-        console.log(actualPoints)
         return actualPoints;
     }
 
@@ -36,6 +38,42 @@ const UpperSection = props => {
         props.changeCanPlay();
     }, [props.canPlay])
 
+    const handlePointTableClick = number => {
+        let newValues = wasChosen;
+        newValues[number] = true;
+        setWasChosen(newValues);
+        props.setDefault();
+        resetTablePoints();
+        sumUpPoints();
+    }
+
+    const sumUpPoints = () => {
+        setTotalPoints(0);
+        setNormalPoints(0);
+        let normalValue = normalPoints;
+        let totalValue = totalPoints;
+        normalValue = 0;
+        points.map(item => {
+            normalValue += item;
+        })
+        totalValue = normalValue;
+        if (normalValue > 63) {
+            totalValue += 100;
+        }
+        setTotalPoints(totalValue);
+        setNormalPoints(normalValue);
+    }
+
+    const resetTablePoints = () => {
+        let newValues = points;
+        newValues.map((item, index) => {
+            if (!wasChosen[index]) {
+                newValues[index] = null;
+            }
+        })
+        setPoints(newValues);
+    }
+
     return (
         <>
             <div className="upperSection">
@@ -50,20 +88,23 @@ const UpperSection = props => {
                                 <th scope="row" className="upperSection__strong">
                                     {textForTable[index]}
                                 </th>
-                                <td>{item}</td>
+                                <td
+                                    className={wasChosen[index] ? "" : "red-font"}
+                                    onClick={() => handlePointTableClick(index)}
+                                >{item}</td>
                             </tr>
                         ))}
                         <tr className="upperSection__column">
                             <th scope="row" className="upperSection__strong">Total</th>
-                            <td></td>
+                            <td>{normalPoints}</td>
                         </tr>
                         <tr className="upperSection__column">
                             <th scope="row" className="upperSection__strong">Bonus (63+ points = 100)</th>
-                            <td></td>
+                            <td>{normalPoints > 63 ? "100" : "-"}</td>
                         </tr>
                         <tr className="upperSection__column">
                             <th scope="row" >Total of Upper Section</th>
-                            <td></td>
+                            <td>{totalPoints}</td>
                         </tr>
                     </tbody>
                 </table>

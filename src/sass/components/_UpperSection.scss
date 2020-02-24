@@ -13,6 +13,7 @@
     }
     &__column td {
         text-align: center;
+        cursor: pointer;
     }
     &__strong {
         width: 70%;
@@ -20,4 +21,8 @@
     &__table, &__strong {
         border: 1px solid $font-color;
     }
+}
+
+.red-font {
+    color: $blocked-color;
 }

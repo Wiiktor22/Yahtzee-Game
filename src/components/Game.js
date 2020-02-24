@@ -41,6 +41,12 @@ const Game = () => {
         setCanPlay(false);
     }
 
+    const setDefault = () => {
+        setQueue(3);
+        setDices([null, null, null, null, null]);
+        setBlockItem([false, false, false, false, false])
+    }
+
     return ( 
         <>
             <div className="table">
@@ -59,6 +65,7 @@ const Game = () => {
                 dices={dices}
                 canPlay={canPlay}
                 changeCanPlay={changeCanPlay}
+                setDefault={setDefault}
             />
         </>
     );
