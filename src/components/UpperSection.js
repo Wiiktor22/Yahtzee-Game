@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const UpperSection = props => {
     const [wasChosen, setWasChosen] = useState([false, false, false, false, false, false]);
@@ -26,43 +26,48 @@ const UpperSection = props => {
             }
             return newValues;
         })
-        console.log(newValues);
         setPoints(newValues);
     };
 
+    useEffect(() => {
+        if (props.dices[0] !== null && props.canPlay) {
+            settingPoints();
+        }
+        props.changeCanPlay();
+    }, [props.canPlay])
+
     return (
         <>
-        {props.dices[0] !== null && settingPoints()}
-        <div className="upperSection">
-            <table className="upperSection__table">
-                <tbody>
-                    <tr className="upperSection__column">
-                        <th scope="col" className="upperSection__strong">Upper Section</th>
-                        <th scope="col" className="upperSection__strong">Points</th>
-                    </tr>
-                    {points.map((item, index) => (
-                        <tr className="upperSection__column" key={textForTable[index]}>
-                            <th scope="row" className="upperSection__strong">
-                                {textForTable[index]}
-                            </th>
-                            <td>{item}</td>
+            <div className="upperSection">
+                <table className="upperSection__table">
+                    <tbody>
+                        <tr className="upperSection__column">
+                            <th scope="col" className="upperSection__strong">Upper Section</th>
+                            <th scope="col" className="upperSection__strong">Points</th>
                         </tr>
-                    ))}
-                    <tr className="upperSection__column">
-                        <th scope="row" className="upperSection__strong">Total</th>
-                        <td></td>
-                    </tr>
-                    <tr className="upperSection__column">
-                        <th scope="row" className="upperSection__strong">Bonus (63+ points = 100)</th>
-                        <td></td>
-                    </tr>
-                    <tr className="upperSection__column">
-                        <th scope="row" >Total of Upper Section</th>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                        {points.map((item, index) => (
+                            <tr className="upperSection__column" key={textForTable[index]}>
+                                <th scope="row" className="upperSection__strong">
+                                    {textForTable[index]}
+                                </th>
+                                <td>{item}</td>
+                            </tr>
+                        ))}
+                        <tr className="upperSection__column">
+                            <th scope="row" className="upperSection__strong">Total</th>
+                            <td></td>
+                        </tr>
+                        <tr className="upperSection__column">
+                            <th scope="row" className="upperSection__strong">Bonus (63+ points = 100)</th>
+                            <td></td>
+                        </tr>
+                        <tr className="upperSection__column">
+                            <th scope="row" >Total of Upper Section</th>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </>
     );
 }

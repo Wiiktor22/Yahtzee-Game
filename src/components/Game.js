@@ -7,8 +7,10 @@ const Game = () => {
     const [dices, setDices] = useState([null, null, null, null, null]);
     const [blockItem, setBlockItem] = useState([false, false, false, false, false])
     const arrayOfID = [1, 2, 3, 4, 5];
+    const [canPlay, setCanPlay] = useState(false);
 
     const handleButtonClick = () => {
+        setCanPlay(true);
         let newValues = dices;
         if (queue > 0 ) {
             newValues.map((item, index) => {
@@ -34,6 +36,10 @@ const Game = () => {
         }
         setBlockItem(newValues);
     }
+    
+    const changeCanPlay = () => {
+        setCanPlay(false);
+    }
 
     return ( 
         <>
@@ -51,6 +57,8 @@ const Game = () => {
             <button onClick={handleButtonClick}>Roll dice</button>
             <UpperSection 
                 dices={dices}
+                canPlay={canPlay}
+                changeCanPlay={changeCanPlay}
             />
         </>
     );
