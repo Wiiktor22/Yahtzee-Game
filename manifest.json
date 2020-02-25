@@ -1,0 +1,16 @@
+{
+    "short_name": "Yahtzee!",
+    "name": "Yahtzee! - board game",
+    "icons": [
+      {
+        "src": "logo.png",
+        "type": "image/png",
+        "sizes": "256x256"
+      }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#0c3011",
+    "background_color": "#155e1f"
+  }
+  
