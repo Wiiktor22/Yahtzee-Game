@@ -81,7 +81,6 @@ const UpperSection = props => {
 
     return (
         <>  
-            {console.log("render w up")}
             <div className="upperSection">
                 <table className="upperSection__table">
                     <tbody>

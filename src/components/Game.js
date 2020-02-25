@@ -55,7 +55,6 @@ const Game = () => {
 
     return ( 
         <>
-            {console.log(round)}
             <div className="table">
                 {dices.map((item, index) => (
                     <div 
