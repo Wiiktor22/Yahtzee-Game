@@ -38,12 +38,15 @@ const UpperSection = props => {
     }, [props.canPlay])
 
     const handlePointTableClick = number => {
-        let newValues = wasChosen;
-        newValues[number] = true;
-        setWasChosen(newValues);
-        props.setDefault();
-        resetTablePoints();
-        sumUpPoints();
+        if (props.canShow) {
+            let newValues = wasChosen;
+            newValues[number] = true;
+            setWasChosen(newValues);
+            props.setDefault();
+            resetTablePoints();
+            sumUpPoints();
+            props.setShow();
+        }
     }
 
     const sumUpPoints = () => {
