@@ -7,6 +7,18 @@
         font-size: 1.4rem;
         background-color: $font-color;
         border-radius: 4px;
+        @media (orientation: landscape) {
+            width: 60%;
+        }
+        @media (min-width: 768px) {
+            width: 50%;
+        }
+        @media(min-width: 1024px) {
+            width: 30%;
+        }
+        @media(min-width: 1600px) {
+            width: 20%;
+        }
     }
     &__column {
         line-height: 2.5rem;

@@ -5,6 +5,7 @@ const LowerSection = props => {
     const [points, setPoints] = useState([null, null, null, null, null, null, null, null]);
     const textForTable = ["3 of kind", "4 of kind", "Odd", "Even", "Low straight", "High straight", "Yahtzee", "Chance"];
     const [normalPoints, setNormalPoints] = useState(0);
+    const [infoRound, setInfoRound] = useState(14);
 
     const checkNumberOfKind = ruleNumber => {
         let points = 0, amountofNumber = 0;
@@ -17,6 +18,9 @@ const LowerSection = props => {
             })
             if (amountofNumber >= ruleNumber) {
                 points = ruleNumber * item;
+                if (ruleNumber === 5) {
+                    points += 50;
+                }
             }
             amountofNumber = 0;
         })
@@ -91,15 +95,12 @@ const LowerSection = props => {
     }
 
     const handlePointTableClick = number => {
-        if (props.canShow) {
-            let newValues = wasChosen;
-            newValues[number] = true;
-            setWasChosen(newValues);
-            props.setDefault();
-            resetTablePoints();
-            sumUpPoints();
-            props.setShow();
-        }
+        let newValues = wasChosen;
+        newValues[number] = true;
+        setWasChosen(newValues);
+        props.setDefault();
+        resetTablePoints();
+        sumUpPoints();
     }
 
     useEffect(() => {
@@ -109,8 +110,14 @@ const LowerSection = props => {
         props.changeCanPlay();
     }, [props.canPlay])
 
+    useEffect(() => {
+        resetTablePoints();
+        setInfoRound(infoRound - 1)
+    }, [props.round])
+
     return ( 
         <>
+            {infoRound > props.round ? resetTablePoints() : null }
             <div className="upperSection">
                 <table className="upperSection__table">
                     <tbody>
@@ -132,10 +139,6 @@ const LowerSection = props => {
                         <tr className="upperSection__column">
                             <th scope="row" className="upperSection__strong">Total of Lower Section</th>
                             <td>{normalPoints}</td>
-                        </tr>
-                        <tr className="upperSection__column">
-                            <th scope="row" >Total (Upper + Lower)</th>
-                            <td>TODO</td>
                         </tr>
                     </tbody>
                 </table>

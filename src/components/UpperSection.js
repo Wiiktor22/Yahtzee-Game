@@ -6,6 +6,7 @@ const UpperSection = props => {
     const textForTable = ["Ones", "Twos", "Threes", "Fours", "Fives", "Sixes"];
     const [normalPoints, setNormalPoints] = useState(0);
     const [totalPoints, setTotalPoints] = useState(0);
+    const [infoRound, setInfoRound] = useState(14);
      
     const checkPossibilityToPlay = number => {
         let newValues = props.dices
@@ -37,16 +38,18 @@ const UpperSection = props => {
         props.changeCanPlay();
     }, [props.canPlay])
 
+    useEffect(() => {
+        resetTablePoints();
+        setInfoRound(infoRound - 1);
+    }, [props.round])
+
     const handlePointTableClick = number => {
-        if (props.canShow) {
-            let newValues = wasChosen;
-            newValues[number] = true;
-            setWasChosen(newValues);
-            props.setDefault();
-            resetTablePoints();
-            sumUpPoints();
-            props.setShow();
-        }
+        let newValues = wasChosen;
+        newValues[number] = true;
+        setWasChosen(newValues);
+        props.setDefault();
+        resetTablePoints();
+        sumUpPoints();
     }
 
     const sumUpPoints = () => {
@@ -77,7 +80,8 @@ const UpperSection = props => {
     }
 
     return (
-        <>
+        <>  
+            {console.log("render w up")}
             <div className="upperSection">
                 <table className="upperSection__table">
                     <tbody>

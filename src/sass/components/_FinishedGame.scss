@@ -1,0 +1,35 @@
+.finished {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 25vh;
+    border: 5px solid $font-color;
+    background-color: $main-color;
+    padding: 10px;
+    @media (orientation: landscape) {
+        width: 60%;
+    }
+    @media (min-width: 768px) {
+        width: 50%;
+    }
+    @media(min-width: 1024px) {
+        width: 30%;
+    }
+    @media(min-width: 1600px) {
+        width: 20%;
+    }
+    &__header {
+        font-size: 2.5rem;
+        padding-bottom: 10px;
+    }
+    &__text {
+        font-size: 1.3rem;
+        padding-bottom: 20px;
+    }
+}
