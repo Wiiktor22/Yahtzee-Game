@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cb608e7f3d7e4e0f78d35ab8630698fb",
+    "revision": "d309f5ebd04bdc8440db6d1b71e03f5f",
     "url": "/Yahtzee-Game/index.html"
   },
   {
