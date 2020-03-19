@@ -4,6 +4,8 @@ import { useState } from 'react';
 import LowerSection from './LowerSection';
 import HelpPage from './HelpPage';
 import FinishedGame from './FinishedGame';
+import { useEffect } from 'react';
+import useForceUpdate from 'use-force-update';
 
 const Game = () => {
     const [queue, setQueue] = useState(3);
@@ -13,6 +15,7 @@ const Game = () => {
     const [canPlay, setCanPlay] = useState(false);
     const [showHelp, setShowHelp] = useState(false);
     const arrayOfID = [1, 2, 3, 4, 5];
+    const forceUpdate = useForceUpdate();
 
     const handleButtonClick = () => {
         setCanPlay(true);
@@ -34,12 +37,13 @@ const Game = () => {
 
     const handleDiceClick = number => {
         let newValues = blockItem;
-        for (let i = 0; i < newValues.length; i++) {
-            if(i === number) {
-                newValues[i] = !newValues[i];
+        newValues.map((value, index) => {
+            if (index === number) {
+                newValues[index] = true;
             }
-        }
+        })
         setBlockItem(newValues);
+        forceUpdate();
     }
     
     const changeCanPlay = () => {
@@ -53,19 +57,27 @@ const Game = () => {
         setRound(round - 1);
     }
 
+    const renderTable = () => (
+        <div className="table">
+            {dices.map((item, index) => (
+                <div 
+                    key={arrayOfID[index]} 
+                    className={blockItem[index] ? "dice blocked" : "dice"}
+                    onClick={() => handleDiceClick(index)}
+                    >
+                    {item}
+                </div>
+            ))}
+        </div>
+    )
+
+    useEffect(() => {
+        renderTable()
+    })
+
     return ( 
         <>
-            <div className="table">
-                {dices.map((item, index) => (
-                    <div 
-                        key={arrayOfID[index]} 
-                        className={blockItem[index] ? "dice blocked" : "dice"}
-                        onClick={() => handleDiceClick(index)}
-                        >
-                        {item}
-                    </div>
-                ))}
-            </div>
+            {renderTable()}
             <button onClick={handleButtonClick}>Roll dice</button>
             <UpperSection 
                 dices={dices}
