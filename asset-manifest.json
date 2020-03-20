@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Yahtzee-Game/static/css/main.d7fa7af1.chunk.css",
-    "main.js": "/Yahtzee-Game/static/js/main.3e22a75f.chunk.js",
-    "main.js.map": "/Yahtzee-Game/static/js/main.3e22a75f.chunk.js.map",
+    "main.js": "/Yahtzee-Game/static/js/main.bfacf79f.chunk.js",
+    "main.js.map": "/Yahtzee-Game/static/js/main.bfacf79f.chunk.js.map",
     "runtime-main.js": "/Yahtzee-Game/static/js/runtime-main.f59c974c.js",
     "runtime-main.js.map": "/Yahtzee-Game/static/js/runtime-main.f59c974c.js.map",
     "static/js/2.9c91349d.chunk.js": "/Yahtzee-Game/static/js/2.9c91349d.chunk.js",
     "static/js/2.9c91349d.chunk.js.map": "/Yahtzee-Game/static/js/2.9c91349d.chunk.js.map",
     "index.html": "/Yahtzee-Game/index.html",
-    "precache-manifest.02caf8a40fd58b2df71d1eca198a1648.js": "/Yahtzee-Game/precache-manifest.02caf8a40fd58b2df71d1eca198a1648.js",
+    "precache-manifest.d5d61a2e220d582c9e75792a60ddd06f.js": "/Yahtzee-Game/precache-manifest.d5d61a2e220d582c9e75792a60ddd06f.js",
     "service-worker.js": "/Yahtzee-Game/service-worker.js",
     "static/css/main.d7fa7af1.chunk.css.map": "/Yahtzee-Game/static/css/main.d7fa7af1.chunk.css.map",
     "static/js/2.9c91349d.chunk.js.LICENSE.txt": "/Yahtzee-Game/static/js/2.9c91349d.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.f59c974c.js",
     "static/js/2.9c91349d.chunk.js",
     "static/css/main.d7fa7af1.chunk.css",
-    "static/js/main.3e22a75f.chunk.js"
+    "static/js/main.bfacf79f.chunk.js"
   ]
 }

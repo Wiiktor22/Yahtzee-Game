@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7bbef8c9670ca8cff44d57929cbd74b9",
+    "revision": "c0e2afe9b96fa877b2f38e3ebcad66bc",
     "url": "/Yahtzee-Game/index.html"
   },
   {
-    "revision": "5f0bc8f0fa3432dcabf3",
+    "revision": "82d08f51cf46ebaa9e39",
     "url": "/Yahtzee-Game/static/css/main.d7fa7af1.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Yahtzee-Game/static/js/2.9c91349d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5f0bc8f0fa3432dcabf3",
-    "url": "/Yahtzee-Game/static/js/main.3e22a75f.chunk.js"
+    "revision": "82d08f51cf46ebaa9e39",
+    "url": "/Yahtzee-Game/static/js/main.bfacf79f.chunk.js"
   },
   {
     "revision": "44109e802e2cf065cdda",
